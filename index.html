@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SiteJá | Site profissional para o seu negócio em 7 dias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F6FC;--surface:#FFFFFF;--ink:#0E2747;--muted:#4A5F7D;--line:#D5DFEE;
+  --accent:#FFC21A;--accent-ink:#0E2747;--blue:#1F5FD6;--ok:#12805C;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0A1628;--surface:#12233D;--ink:#EAF1FC;--muted:#9DB0CC;--line:#243B5E;--blue:#6C9DFF;--ok:#4CD3A0;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#0A1628;--surface:#12233D;--ink:#EAF1FC;--muted:#9DB0CC;--line:#243B5E;--blue:#6C9DFF;--ok:#4CD3A0;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body)}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.logo{font:800 26px var(--display);letter-spacing:-.02em;text-decoration:none}
+.logo span{color:var(--blue)}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);font:700 17px var(--body);padding:15px 26px;border-radius:12px;text-decoration:none;border:2px solid var(--accent);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.sm{padding:10px 18px;font-size:15px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:36px 0 72px}
+h1{font:800 clamp(40px,6.4vw,72px)/1 var(--display);letter-spacing:-.035em;margin:0 0 22px}
+.lead{font-size:20px;color:var(--muted);max-width:30em;margin:0 0 30px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.note{margin-top:18px;font-size:15px;color:var(--muted)}
+.browser{background:var(--surface);border:2px solid var(--ink);border-radius:16px;box-shadow:8px 8px 0 var(--ink);overflow:hidden}
+.bar{display:flex;gap:7px;align-items:center;padding:12px 14px;border-bottom:2px solid var(--ink)}
+.bar i{width:11px;height:11px;border-radius:50%;background:var(--line);display:block}
+.url{margin-left:10px;font-size:13px;color:var(--muted);background:var(--bg);padding:4px 12px;border-radius:99px;flex:1}
+.screen{padding:24px;min-height:250px}
+.sk{height:14px;border-radius:7px;background:var(--line);margin-bottom:12px}
+.sk.t{height:26px;width:70%;background:var(--ink);opacity:.85}
+.sk.b{height:90px;border-radius:10px;margin:18px 0}
+.sk.k{height:40px;width:42%;background:var(--accent)}
+.screen > *{opacity:0;transform:translateY(8px);animation:in .5s forwards}
+.screen > :nth-child(1){animation-delay:.3s}.screen > :nth-child(2){animation-delay:.8s}.screen > :nth-child(3){animation-delay:1.3s}.screen > :nth-child(4){animation-delay:1.8s}.screen > :nth-child(5){animation-delay:2.2s}
+@keyframes in{to{opacity:1;transform:none}}
+.live{position:relative;margin:0 24px 24px;height:34px;border-radius:99px;background:var(--bg);border:2px solid var(--ink);overflow:hidden}
+.live b{position:absolute;inset:0 auto 0 0;width:0;background:var(--ok);animation:fill 2.6s .3s forwards}
+.live span{position:absolute;inset:0;display:grid;place-items:center;font:700 14px var(--body);color:var(--ink);mix-blend-mode:normal}
+.live span::after{content:"";}
+@keyframes fill{to{width:100%}}
+.live .done{opacity:0;animation:in .4s 2.9s forwards;background:var(--ok);color:#fff}
+section{padding:64px 0;border-top:2px solid var(--line)}
+h2{font:800 clamp(30px,4.4vw,46px)/1.05 var(--display);letter-spacing:-.03em;margin:0 0 14px}
+.sub{color:var(--muted);max-width:36em;margin:0 0 38px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s;padding:0;list-style:none;margin:0}
+.steps li{counter-increment:s;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:22px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font:800 18px var(--display);margin-bottom:14px}
+.steps h3,.plan h3{font:700 20px/1.2 var(--display);margin:0 0 8px}
+.steps p{margin:0;color:var(--muted);font-size:15.5px}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.plan{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column}
+.plan.main{border-color:var(--ink);box-shadow:6px 6px 0 var(--ink)}
+.price{font:800 40px var(--display);letter-spacing:-.03em;margin:10px 0 2px}
+.price small{font:500 15px var(--body);color:var(--muted);letter-spacing:0}
+.mo{color:var(--muted);margin:0 0 18px}
+.plan ul{list-style:none;padding:0;margin:0 0 24px;flex:1}
+.plan li{padding:7px 0 7px 26px;position:relative;font-size:16px}
+.plan li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}
+.tag{display:inline-block;background:var(--accent);color:var(--accent-ink);font:700 13px var(--body);padding:3px 11px;border-radius:99px;margin-bottom:8px;align-self:flex-start}
+.incl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 28px}
+.incl div{padding-left:26px;position:relative}
+.incl div::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}
+details{background:var(--surface);border:2px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:12px}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 0;color:var(--muted)}
+.final{text-align:center;padding:72px 0}
+.final .lead{margin:0 auto 28px}
+footer{border-top:2px solid var(--line);padding:26px 0 36px;color:var(--muted);font-size:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));background:#25D366;color:#073B1C;font:700 16px var(--body);padding:13px 20px;border-radius:99px;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:5}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:36px}
+  .steps,.plans,.incl{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+}
+@media (max-width:520px){.steps{grid-template-columns:1fr}.btn{width:100%;text-align:center}header .btn{width:auto}}
+@media (prefers-reduced-motion:reduce){.screen>*,.live .done{animation:none;opacity:1;transform:none}.live b{animation:none;width:100%}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="logo" href="#">Site<span>Já</span></a>
+    <a class="btn sm" href="https://wa.me/5544997074771?text=Oi!%20Quero%20uma%20pr%C3%A9via%20gr%C3%A1tis%20do%20site%20do%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>Seu negócio com site profissional em 7 dias.</h1>
+      <p class="lead">Criamos o site da sua empresa, com botão de WhatsApp, mapa e formulário de orçamento, e colocamos no ar para você ser encontrado no Google.</p>
+      <div class="cta-row">
+        <a class="btn" href="https://wa.me/5544997074771?text=Oi!%20Quero%20uma%20pr%C3%A9via%20gr%C3%A1tis%20do%20site%20do%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Quero minha prévia grátis</a>
+        <a class="btn ghost" href="#planos">Ver planos</a>
+      </div>
+      <p class="note">Você vê o site pronto antes de pagar qualquer coisa.</p>
+    </div>
+    <div class="browser" aria-hidden="true">
+      <div class="bar"><i></i><i></i><i></i><span class="url">seunegocio.com.br</span></div>
+      <div class="screen">
+        <div class="sk t"></div>
+        <div class="sk" style="width:90%"></div>
+        <div class="sk b"></div>
+        <div class="sk k"></div>
+        <div class="sk" style="width:55%"></div>
+      </div>
+      <div class="live"><b></b><span>Montando o seu site…</span><span class="done">No ar!</span></div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>Como funciona</h2>
+    <p class="sub">Você só conta sobre o negócio. Do resto cuidamos nós.</p>
+    <ol class="steps">
+      <li><h3>Conversa rápida</h3><p>Você nos chama no WhatsApp e conta o que a sua empresa faz.</p></li>
+      <li><h3>Prévia grátis</h3><p>Montamos uma versão com o nome e o ramo do seu negócio para você ver.</p></li>
+      <li><h3>Ajustes</h3><p>Você pede as mudanças de texto, foto e cor até ficar do seu jeito.</p></li>
+      <li><h3>Site no ar</h3><p>Publicamos, configuramos o domínio e você começa a receber contatos.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="planos">
+  <div class="wrap">
+    <h2>Planos</h2>
+    <p class="sub">Um valor para criar e uma mensalidade pequena para manter tudo funcionando.</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>Essencial</h3>
+        <div class="price">R$ 890 <small>criação</small></div>
+        <p class="mo">+ R$ 80 por mês</p>
+        <ul><li>Página única (one page)</li><li>Botão de WhatsApp</li><li>Mapa e horários</li><li>Hospedagem inclusa</li></ul>
+        <a class="btn ghost" href="https://wa.me/5544997074771?text=Oi!%20Tenho%20interesse%20no%20plano%20Essencial." target="_blank" rel="noopener">Quero o Essencial</a>
+      </div>
+      <div class="plan main">
+        <span class="tag">Mais escolhido</span>
+        <h3>Profissional</h3>
+        <div class="price">R$ 1.500 <small>criação</small></div>
+        <p class="mo">+ R$ 150 por mês</p>
+        <ul><li>Até 5 páginas</li><li>Formulário de orçamento</li><li>Google Meu Negócio configurado</li><li>E-mail profissional</li><li>Pequenos ajustes todo mês</li></ul>
+        <a class="btn" href="https://wa.me/5544997074771?text=Oi!%20Tenho%20interesse%20no%20plano%20Profissional." target="_blank" rel="noopener">Quero o Profissional</a>
+      </div>
+      <div class="plan">
+        <h3>Completo</h3>
+        <div class="price">R$ 2.500 <small>criação</small></div>
+        <p class="mo">+ R$ 250 por mês</p>
+        <ul><li>Tudo do Profissional</li><li>Catálogo de produtos ou serviços</li><li>Blog para aparecer no Google</li><li>Suporte prioritário</li></ul>
+        <a class="btn ghost" href="https://wa.me/5544997074771?text=Oi!%20Tenho%20interesse%20no%20plano%20Completo." target="_blank" rel="noopener">Quero o Completo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Em todos os sites</h2>
+    <p class="sub">O básico bem feito, sem surpresa.</p>
+    <div class="incl">
+      <div>Funciona bem no celular</div>
+      <div>Carrega rápido</div>
+      <div>Pronto para aparecer no Google</div>
+      <div>Certificado de segurança (cadeado)</div>
+      <div>Suporte direto pelo WhatsApp</div>
+      <div>Você aprova antes de ir ao ar</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Dúvidas comuns</h2>
+    <p class="sub"></p>
+    <details><summary>Preciso ter logo e fotos?</summary><p>Não. Se você já tem, usamos. Se não tiver, montamos com o que existir no seu Instagram e com imagens profissionais.</p></details>
+    <details><summary>Quanto tempo leva?</summary><p>A prévia sai em poucos dias e o site completo vai ao ar em até 7 dias depois de você enviar as informações.</p></details>
+    <details><summary>O domínio (.com.br) está incluso?</summary><p>Ajudamos a registrar o domínio no seu nome. O valor do registro é pago direto ao Registro.br, e nós cuidamos da configuração.</p></details>
+    <details><summary>E se eu não gostar da prévia?</summary><p>Você não paga nada. A prévia é gratuita e sem compromisso.</p></details>
+    <details><summary>Posso cancelar a mensalidade?</summary><p>Pode. Você avisa pelo WhatsApp e combinamos a entrega dos arquivos do seu site.</p></details>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Vamos colocar o seu negócio no ar?</h2>
+    <p class="lead">Mande o nome da sua empresa e o ramo. A prévia chega para você sem custo.</p>
+    <a class="btn" href="https://wa.me/5544997074771?text=Oi!%20Quero%20uma%20pr%C3%A9via%20gr%C3%A1tis%20do%20site%20do%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Chamar no WhatsApp: (44) 99707-4771</a>
+  </div>
+</section>
+
+<div class="wrap"><footer><span>SiteJá · Sites para pequenas empresas</span><span>WhatsApp (44) 99707-4771</span></footer></div>
+<a class="wa" href="https://wa.me/5544997074771?text=Oi!%20Quero%20uma%20pr%C3%A9via%20gr%C3%A1tis%20do%20site%20do%20meu%20neg%C3%B3cio." target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">WhatsApp</a>
+</body>
+</html>
